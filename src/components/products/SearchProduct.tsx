@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import TextField from '@mui/material/TextField';
 
 import { useDispatch } from 'react-redux'
-import { productActions } from '../redux/slice/products'
+import { productActions } from '../../redux/slice/products'
 
 
 export default function SearchProduct() {

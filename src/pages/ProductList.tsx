@@ -2,9 +2,11 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { AppDispatch, RootState } from "../redux/store";
-import ProductItem from "../components/ProductItem";
 import { fetchProductData } from "../redux/thunk/products";
-import Loading from "../components/Loading";
+import ProductItem from "../components/products/ProductItem";
+import Loading from "../components/loading/Loading";
+import SearchProduct from "../components/products/SearchProduct";
+
 
 
 export default function ProductList() {
@@ -20,6 +22,7 @@ export default function ProductList() {
     return <div><Loading /></div>
   }
   return <div>
+    <SearchProduct />
     {productList.map((item) => {
       return <ProductItem key={item.id} item={item} />
     })}
