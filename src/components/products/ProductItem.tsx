@@ -21,12 +21,17 @@ export default function ProductItem({ item }:Prop) {
     navigate(`/products/${item.id}`)
   }
 
+  function getFavoriteProduct (item:Product) {
+    dispatch(productActions.favorite(item))
+  }
+
   return <div>
+    <img src={item.images[0]} alt={item.title} />
     <div>{item.title} </div>
     <div>{item.price} </div>
-    <div>{item.description} </div>
     <div>
-        <button onClick={()=>{getProductDetail(item)}}>go to detail</button>
+        <button onClick={()=>{getProductDetail(item)}}>Check the Details</button>
+        <button onClick={()=>{getFavoriteProduct(item)}}>add to favorite</button>
     </div>
   </div>;
 }

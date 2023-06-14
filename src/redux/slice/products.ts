@@ -6,6 +6,7 @@ type InitialState = {
     products: Product[]
     isLoading: boolean
     product: Product
+    favorites: Product[]
 }
 
 const initialState: InitialState = {
@@ -27,6 +28,7 @@ const initialState: InitialState = {
             updatedAt: ""
         }
     },
+    favorites: []
 }
 
 
@@ -45,6 +47,9 @@ const productSlice = createSlice({
         getProductDetail: (state, action: PayloadAction<Product> ) =>{
             const result = action.payload;
             state.product = result
+        },
+        favorite: (state,action: PayloadAction<Product>) => {
+            state.favorites.push(action.payload)
         }
     }
 })

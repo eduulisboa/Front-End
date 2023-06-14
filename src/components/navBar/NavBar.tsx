@@ -2,6 +2,9 @@ import * as React from 'react';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import Box from '@mui/material/Box';
 import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
+import { Link } from 'react-router-dom';
 
 function HomeIcon(props: SvgIconProps) {
   return (
@@ -22,8 +25,22 @@ export default function NavBar() {
         },
       }}
     >
-      <HomeIcon />
-      <FavoriteIcon />
+      <Link to="/">
+        <HomeIcon />
+      </Link>
+      <Link to="products">
+        <ShoppingBagIcon />
+      </Link>
+      <Link to="favorites">
+         <FavoriteIcon />
+      </Link>
+      <Link to="cart">
+        <ShoppingCartCheckoutIcon />
+      </Link>
+      <Link to="about">
+        About us
+      </Link>
+
     </Box>
     </div>
   );
