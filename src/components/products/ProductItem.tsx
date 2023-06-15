@@ -38,7 +38,6 @@ export default function ProductItem({ item }:Prop) {
     <div>{item.title} </div>
     <div>{item.price} </div>
     <div>
-  
       <IconButton onClick={() => getFavoriteProducts(item)}>
         <FavoriteIcon color={item ? "secondary": "primary"} />
       </IconButton>

@@ -64,7 +64,7 @@ const productSlice = createSlice({
               if (result) {
                 state.cart = state.cart.filter((item) => item.id !== action.payload.id)
               } else {
-                state.favorites.push(action.payload);
+                state.cart.push(action.payload);
               }
         }
     }
