@@ -7,11 +7,14 @@ type InitialState = {
     isLoading: boolean
     product: Product
     favorites: Product[]
+    cart: Product[]
 }
 
 const initialState: InitialState = {
     products: [],
     isLoading: true,
+    cart: [],
+    favorites: [],
     product: {
         id: 0,
         title: "",
@@ -28,7 +31,7 @@ const initialState: InitialState = {
             updatedAt: ""
         }
     },
-    favorites: []
+
 }
 
 
@@ -48,8 +51,21 @@ const productSlice = createSlice({
             const result = action.payload;
             state.product = result
         },
-        favorite: (state,action: PayloadAction<Product>) => {
-            state.favorites.push(action.payload)
+        getFavorite: (state,action: PayloadAction<Product>) => {
+            const result = state.favorites.some((item) => item.id === action.payload.id)
+              if (result) {
+                state.favorites = state.favorites.filter((item) => item.id !== action.payload.id)
+              } else {
+                state.favorites.push(action.payload);
+              }
+        },
+        getCartList: (state,action: PayloadAction<Product>) => {
+            const result = state.cart.some((item) => item.id === action.payload.id)
+              if (result) {
+                state.cart = state.cart.filter((item) => item.id !== action.payload.id)
+              } else {
+                state.favorites.push(action.payload);
+              }
         }
     }
 })
