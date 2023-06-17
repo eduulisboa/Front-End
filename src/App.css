@@ -1,4 +1,22 @@
-.App {
-  text-align: center;
+.navBar {
+  	display: flex;
+	justify-content: space-around;
+	background-color: rgb(53, 121, 199);
+	align-items: center; 
+	padding: 0px 5px;
+	height: 3.5rem;
+}
+
+.search {
+	display: flex;
+	justify-content: center;
+}
+
+.footer {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding: 0px 5px;
+	height: 3.5rem;
 }
 

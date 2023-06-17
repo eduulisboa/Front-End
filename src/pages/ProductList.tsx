@@ -6,6 +6,7 @@ import { fetchProductData } from "../redux/thunk/products";
 import ProductItem from "../components/products/ProductItem";
 import Loading from "../components/loading/Loading";
 import SearchProduct from "../components/products/SearchProduct";
+import { Grid } from "@mui/material";
 
 
 
@@ -23,8 +24,11 @@ export default function ProductList() {
   }
   return <div>
     <SearchProduct />
+    <Grid container spacing={3}>
     {productList.map((item) => {
-      return <ProductItem key={item.id} item={item} />
+      return <Grid item xs={12} sm={6} md={4} lg={2} key={item.id}><ProductItem item={item} />
+      </Grid>
     })}
+    </Grid>
   </div>;
 }

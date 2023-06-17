@@ -1,4 +1,9 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
+import { RootState } from '../../redux/store';
+
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import Badge, { BadgeProps } from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
@@ -6,9 +11,7 @@ import Box from '@mui/material/Box';
 import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../redux/store';
+
 
 function HomeIcon(props: SvgIconProps) {
   return (
@@ -33,16 +36,16 @@ export default function NavBar() {
   }));
 
   return (
-    <div className='navBar'>
+    <div className="navBar">
           <Box
       sx={{
         '& > :not(style)': {
-          m: 2,
+          m: 20,
         },
       }}
     >
       <Link to="/">
-        <HomeIcon />
+       <HomeIcon />  
       </Link>
       <Link to="products">
         <ShoppingBagIcon />

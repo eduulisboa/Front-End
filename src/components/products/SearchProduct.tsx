@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+
+import { productActions } from '../../redux/slice/products'
 
 import TextField from '@mui/material/TextField';
 
-import { useDispatch } from 'react-redux'
-import { productActions } from '../../redux/slice/products'
 
 
 export default function SearchProduct() {
+  
     const [userInput, setUserInput] = useState("")
     const dispatch = useDispatch()
 
@@ -15,7 +17,7 @@ export default function SearchProduct() {
         dispatch(productActions.searchProducts(userInput))
     }
   return (
-    <div>
+    <div className='search'>
       <TextField onChange={onChangeHandler} id="Search-basic" label="Search" variant="filled" />
     </div>
   )
