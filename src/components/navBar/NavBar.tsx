@@ -37,19 +37,33 @@ export default function NavBar() {
 
   return (
     <div className="navBar">
-          <Box
+      <div className='firstBox'>
+            <Box
       sx={{
         '& > :not(style)': {
           m: 20,
         },
       }}
-    >
+      >
       <Link to="/">
        <HomeIcon />  
       </Link>
       <Link to="products">
         <ShoppingBagIcon />
       </Link>
+      <Link to="about">
+        About us
+      </Link>
+      </Box>
+      </div>
+      <div className='secondBox'>
+      <Box
+      sx={{
+        '& > :not(style)': {
+          m: 5,
+        },
+      }}
+      >
       <Link to="favorites">
       <StyledBadge  badgeContent={favoriteList.length} color="secondary">
         <FavoriteIcon />
@@ -60,11 +74,9 @@ export default function NavBar() {
         <ShoppingCartCheckoutIcon />
       </StyledBadge>
       </Link>
-      <Link to="about">
-        About us
-      </Link>
 
     </Box>
+    </div>
     </div>
   );
   

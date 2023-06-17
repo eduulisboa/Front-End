@@ -1,6 +1,6 @@
 .navBar {
   	display: flex;
-	justify-content: space-around;
+
 	background-color: rgb(53, 121, 199);
 	align-items: center; 
 	padding: 0px 5px;
@@ -10,6 +10,10 @@
 .search {
 	display: flex;
 	justify-content: center;
+}
+
+.about {
+	text-align: center;
 }
 
 .footer {

@@ -26,7 +26,7 @@ export default function ProductList() {
     <SearchProduct />
     <Grid container spacing={3}>
     {productList.map((item) => {
-      return <Grid item xs={12} sm={6} md={4} lg={2} key={item.id}><ProductItem item={item} />
+      return <Grid item lg={3} key={item.id}><ProductItem item={item} />
       </Grid>
     })}
     </Grid>
