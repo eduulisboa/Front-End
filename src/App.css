@@ -1,19 +1,26 @@
 .navBar {
   	display: flex;
-
 	background-color: rgb(53, 121, 199);
 	align-items: center; 
 	padding: 0px 5px;
 	height: 3.5rem;
 }
 
+
+.navBar a:visited {
+	text-decoration: none;
+	color: rgb(220, 231, 231);
+}
+
+h1 {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+
 .search {
 	display: flex;
 	justify-content: center;
-}
-
-.about {
-	text-align: center;
 }
 
 .footer {
@@ -24,3 +31,13 @@
 	height: 3.5rem;
 }
 
+
+.light-theme {
+	background-color: #ffffff;
+	color: #000000;
+  }
+  
+  .dark-theme {
+	background-color: #121212;
+	color: #ffffff;
+  }

@@ -74,7 +74,6 @@ export default function NavBar() {
         <ShoppingCartCheckoutIcon />
       </StyledBadge>
       </Link>
-
     </Box>
     </div>
     </div>

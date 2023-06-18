@@ -11,11 +11,16 @@ import { Grid } from "@mui/material";
 
 
 export default function ProductList() {
-  const productList = useSelector((state:RootState) => state.products.products)
   const isLoading = useSelector((state:RootState) => state.products.isLoading)
+  const favoriteList = useSelector((state:RootState) => state.products.favorites)
+  const cartList = useSelector((state:RootState) => state.products.cart)
+  const filteredProduct = useSelector((state:RootState) => state.products.filteredProduct)
+
 
   const dispatch = useDispatch<AppDispatch>()
-
+//1. Product List vazio,filter List vazio
+//2. Quando carrego a pagina, Product List com valores, filter vazio
+//3. Quando digito no search, Product List com valores, filter com valores filtrados
   useEffect(() => {
     dispatch(fetchProductData())
   },[dispatch])
@@ -23,10 +28,10 @@ export default function ProductList() {
     return <div><Loading /></div>
   }
   return <div>
-    <SearchProduct />
+    <SearchProduct/>
     <Grid container spacing={3}>
-    {productList.map((item) => {
-      return <Grid item lg={3} key={item.id}><ProductItem item={item} />
+    {filteredProduct.map((item) => {
+      return <Grid item lg={3} key={item.id}><ProductItem item={item} favoriteList={favoriteList} cartList={cartList}/>
       </Grid>
     })}
     </Grid>

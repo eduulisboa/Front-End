@@ -4,6 +4,7 @@ import { Product } from "../../types/type";
 
 type InitialState = {
     products: Product[]
+    filteredProduct: Product[]
     isLoading: boolean
     product: Product
     favorites: Product[]
@@ -12,6 +13,7 @@ type InitialState = {
 
 const initialState: InitialState = {
     products: [],
+    filteredProduct: [],
     isLoading: true,
     cart: [],
     favorites: [],
@@ -39,19 +41,20 @@ const productSlice = createSlice({
     name: "products",
     initialState,
     reducers: {
-        getProductData: (state, action: PayloadAction<Product[]>) => {
-            state.products = action.payload
-            state.isLoading = false
+        setProductData: (state, action: PayloadAction<Product[]>) => {
+          state.products = action.payload
+          state.filteredProduct = action.payload
+          state.isLoading = false
         },
         searchProducts: (state,action: PayloadAction<string>) =>{
             const result = state.products.filter((item) => item.title.toLowerCase().includes(action.payload.toLowerCase()))
-            state.products = result
+            state.filteredProduct = result
         },
         getProductDetail: (state, action: PayloadAction<Product> ) =>{
             const result = action.payload;
             state.product = result
         },
-        getFavorite: (state,action: PayloadAction<Product>) => {
+        updateFavoriteList: (state,action: PayloadAction<Product>) => {
             const result = state.favorites.some((item) => item.id === action.payload.id)
               if (result) {
                 state.favorites = state.favorites.filter((item) => item.id !== action.payload.id)
@@ -59,7 +62,7 @@ const productSlice = createSlice({
                 state.favorites.push(action.payload);
               }
         },
-        getCartList: (state,action: PayloadAction<Product>) => {
+        updateCartList: (state,action: PayloadAction<Product>) => {
             const result = state.cart.some((item) => item.id === action.payload.id)
               if (result) {
                 state.cart = state.cart.filter((item) => item.id !== action.payload.id)
