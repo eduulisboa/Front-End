@@ -42,9 +42,9 @@ const productSlice = createSlice({
     initialState,
     reducers: {
         setProductData: (state, action: PayloadAction<Product[]>) => {
-          state.products = action.payload
-          state.filteredProduct = action.payload
-          state.isLoading = false
+            state.products = action.payload
+            state.filteredProduct = action.payload
+            state.isLoading = false
         },
         searchProducts: (state,action: PayloadAction<string>) =>{
             const result = state.products.filter((item) => item.title.toLowerCase().includes(action.payload.toLowerCase()))

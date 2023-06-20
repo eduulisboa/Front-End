@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import { Grid } from "@mui/material";
+
 import { AppDispatch, RootState } from "../redux/store";
 import { fetchProductData } from "../redux/thunk/products";
 import ProductItem from "../components/products/ProductItem";
 import Loading from "../components/loading/Loading";
 import SearchProduct from "../components/products/SearchProduct";
-import { Grid } from "@mui/material";
-
 
 
 export default function ProductList() {
@@ -18,9 +18,6 @@ export default function ProductList() {
 
 
   const dispatch = useDispatch<AppDispatch>()
-//1. Product List vazio,filter List vazio
-//2. Quando carrego a pagina, Product List com valores, filter vazio
-//3. Quando digito no search, Product List com valores, filter com valores filtrados
   useEffect(() => {
     dispatch(fetchProductData())
   },[dispatch])

@@ -1,9 +1,9 @@
 import React, {  useState } from 'react'
 import { useDispatch } from 'react-redux'
 
-import { productActions } from '../../redux/slice/products'
-
 import TextField from '@mui/material/TextField';
+
+import { productActions } from '../../redux/slice/products'
 
 
 export default function SearchProduct() {
@@ -13,7 +13,6 @@ export default function SearchProduct() {
     function onChangeHandler(event: React.ChangeEvent<HTMLInputElement>) {
         setUserInput(event.target.value)
         dispatch(productActions.searchProducts(userInput))
-        console.log(userInput)
     }
 
   return (
