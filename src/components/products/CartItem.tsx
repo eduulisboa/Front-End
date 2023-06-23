@@ -1,18 +1,38 @@
 import React from 'react'
 
-import { Product } from '../../types/type'
+import { CartProduct } from '../../types/type'
+import { useDispatch } from 'react-redux'
+import { AppDispatch } from '../../redux/store'
+import { productActions } from '../../redux/slice/products'
 
 
 type Prop = {
-    item: Product
+   item: CartProduct
 }
 
 export default function CartItem({item}:Prop) {
+
+  const dispatch = useDispatch<AppDispatch>()
+  
+  function handleIncrement() {
+    dispatch(productActions.incrementQuantity(item.id));
+  }
+
+
+  const handleDecrement = () => {
+    dispatch(productActions.decrementQuantity(item.id));
+  };
+    
   return (
-    <div>
-        <div><img src={item.images[0]} alt={item.title} height="400" width="300"/></div>
+    <div className='cartItem'>
+        <div><img src={item.images[0]} alt={item.title} height="100" width="80"/></div>
         <div>{item.title}</div>
         <div>${item.price} </div>
+        <div>
+        Quantity: {item.quantity}
+        <button onClick={handleIncrement}>+</button>
+        <button onClick={handleDecrement}>-</button>
+      </div>
     </div>
   )
 }

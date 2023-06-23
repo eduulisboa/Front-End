@@ -4,10 +4,13 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../redux/store'
 
 
+
 export default function ProductDetail() {
 
   const productDetail = useSelector((state:RootState) => state.products.product)
 
+  if(!productDetail)
+  return <div>no data</div>
   return (
     <div>
       <img src={productDetail.images[0]} alt={productDetail.title} />
